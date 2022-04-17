@@ -39,28 +39,28 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to root_path, class: "nav-link text-light" do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
                     <i class="fas fa-sign-out-alt"></i>Log out
                   <% end %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to , class: "nav-link text-light" do %>
+                  <%= link_to root_path, class: "nav-link text-light" do %>
                     <i class="fas fa-home"></i>Home
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to , class: "nav-link text-light" do %>
+                  <%= link_to about_path, class: "nav-link text-light" do %>
                     <i class="fas fa-link"></i>About
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to , class: "nav-link text-light" do %>
+                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
                     <i class="fas fa-user-plus"></i>Sign up
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to , class: "nav-link text-light" do %>
+                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
                     <i class="fas fa-sign-in-alt"></i>Log in
                   <% end %>
                 </li>
@@ -72,7 +72,12 @@
     </header>
 
     <main>
-    <%= yield %>
+      <p id="notice"></p>
+        <div class="container">
+          <div class=row>
+            <%= yield %>
+          </div>
+        </div>
     </main>
 
     <footer>

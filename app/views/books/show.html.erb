@@ -1,1 +1,32 @@
+<div class=table>
+<%= flash[:notice] %>
+</div>
+
 <%= render 'users/info', book: @book %>
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table class="table">
+  	<tbody>
+  		  <tr>
+  		    <th>
+  		      <%= link_to user_path(@user.id) do %>
+  		        <%= image_tag @book_show.user.get_profile_image("100x100") %><br>
+  		        <%= @user.name %>
+  		      <% end %>
+          </th>
+          <th><%= link_to @book_show.title, book_path(@book_show.id) %></th>
+          <th><%= @book_show.body %></th>
+          <th>
+            <% if @book_show.user == current_user %>
+              <%= link_to "Edit", edit_book_path, class:"btn btn-sm btn-success" %>
+            <% end %>
+          </th>
+          <th>
+            <% if @book_show.user == current_user %>
+              <%= link_to "Destroy", books_path, method: :delete, class:"btn btn-sm btn-danger" %>
+            <% end %>
+          </th>
+  		  </tr>
+    </tbody>
+  </table>
+</div>
